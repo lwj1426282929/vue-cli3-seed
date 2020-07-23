@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import user from './user'
-import document from './document'
+// import user from './user'
+// import document from './document'
 
 const routes = [
   {
@@ -17,8 +17,8 @@ const routes = [
       },
     ],
   },
-  ...user,
-  ...document,
+  // ...user,
+  // ...document,
   {
     name: '404',
     path: '*',
@@ -26,7 +26,7 @@ const routes = [
     component: () => import('@/layout'),
     children: [{
       path: '/404',
-      component: () => import('@/views/404.vue')
+      component: () => import('@/views/404')
     }]
   },
 ]

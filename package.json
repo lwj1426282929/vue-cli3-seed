@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "moment": "^2.27.0",
+    "nprogress": "^0.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
     "vue-server-renderer": "^2.6.11"
