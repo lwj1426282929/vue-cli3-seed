@@ -5,7 +5,7 @@
       <slidebar />
       <el-container>
         <el-main>
-          <nav-bar></nav-bar>
+          <nav-bar v-if="$route.meta.title"></nav-bar>
           <router-view class="page" />
         </el-main>
       </el-container>
@@ -48,7 +48,6 @@ export default {
     flex-direction: column;
 
     .page {
-      margin-top: 20px;
       flex: 1;
       border-radius: 5px;
       background: #a0cfff;

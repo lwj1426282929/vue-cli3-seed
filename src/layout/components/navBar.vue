@@ -36,7 +36,7 @@ export default {
 
 <style lang="less" scoped>
 .el-breadcrumb {
-    width: 100%;
+    margin-bottom: 20px;
     box-sizing: border-box;
     padding: 10px;
     background: #a0cfff;
