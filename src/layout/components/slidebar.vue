@@ -39,6 +39,57 @@ export default {
   created() {
     this.routes = [
       ...user,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
+      ...document,
       ...document
     ]
   }
@@ -101,7 +152,7 @@ export default {
   }
 
   /deep/.el-submenu > .el-submenu__title .el-submenu__icon-arrow {
-    right: 40px;
+    right: 20px;
   }
 }
 </style>

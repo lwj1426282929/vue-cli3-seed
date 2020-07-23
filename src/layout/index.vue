@@ -6,7 +6,9 @@
       <el-container>
         <el-main>
           <nav-bar v-if="$route.meta.title"></nav-bar>
-          <router-view class="page" />
+          <el-scrollbar wrap-class="scrollbar-wrapper">
+            <router-view class="page" />
+          </el-scrollbar>
         </el-main>
       </el-container>
     </el-container>
@@ -47,10 +49,26 @@ export default {
     display: flex;
     flex-direction: column;
 
-    .page {
+    & > .el-scrollbar {
       flex: 1;
-      border-radius: 5px;
       background: #a0cfff;
+      border-radius: 5px;
+
+      /deep/.el-scrollbar__wrap {
+        overflow: auto;
+      }
+
+      /deep/.scrollbar-wrapper {
+        overflow-x: hidden !important;
+      }
+
+      /deep/.el-scrollbar__bar.is-vertical {
+        right: 0px;
+      }
+
+      /deep/.el-scrollbar__bar.is-horizontal {
+        display: none;
+      }
     }
   }
 }
