@@ -39,7 +39,7 @@ export default {
     margin-bottom: 20px;
     box-sizing: border-box;
     padding: 10px;
-    background: #a0cfff;
+    // background: #a0cfff;
     border-radius: 5px;
 }
 </style>

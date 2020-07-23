@@ -51,7 +51,7 @@ export default {
 
     & > .el-scrollbar {
       flex: 1;
-      background: #a0cfff;
+      // background: #a0cfff;
       border-radius: 5px;
 
       /deep/.el-scrollbar__wrap {

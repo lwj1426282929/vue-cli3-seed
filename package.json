@@ -44,7 +44,7 @@
     },
     "rules": {
       "no-alert": "error",
-      "space-before-function-paren": [2, "alwalys"]
+      "no-const-assign": "error"
     }
   },
   "browserslist": [

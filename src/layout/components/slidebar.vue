@@ -5,7 +5,7 @@
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu router
                unique-opened
-               background-color="#a0cfff"
+               
                :collapse="isCollapse"
                :collapse-transition="false"
                :default-active="$route.path">
@@ -49,48 +49,6 @@ export default {
       ...document,
       ...document,
       ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document
     ]
   }
 }
@@ -98,7 +56,7 @@ export default {
 
 <style lang="less" scoped>
 .el-aside {
-  box-sizing: border-box;
+  // box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background: #a0cfff;
@@ -136,6 +94,7 @@ export default {
 
   .el-menu {
     border: 0 none;
+    max-width: 300px;
   }
 
   /deep/ .el-menu--collapse > div > .el-submenu > .el-submenu__title span {
