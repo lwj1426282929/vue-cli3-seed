@@ -5,7 +5,6 @@
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu router
                unique-opened
-               
                :collapse="isCollapse"
                :collapse-transition="false"
                :default-active="$route.path">
@@ -39,16 +38,7 @@ export default {
   created() {
     this.routes = [
       ...user,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
-      ...document,
+      ...document
     ]
   }
 }

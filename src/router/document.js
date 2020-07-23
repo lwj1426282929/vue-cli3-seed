@@ -8,8 +8,8 @@ export default [
     component: () => import('@/layout'),
     children: [
       {
-        name: 'document',
-        path: '/document',
+        name: 'documentList',
+        path: '/document/list',
         meta: {
           title: '文档管理',
         },
