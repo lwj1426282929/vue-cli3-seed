@@ -1,0 +1,45 @@
+<template>
+  <el-breadcrumb separator-class="el-icon-arrow-right">
+    <el-breadcrumb-item v-for="item in breadcrumbList"
+                        :key="item.path"
+                        :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
+  </el-breadcrumb>
+</template>
+
+<script>
+export default {
+  name: 'navBar',
+
+  data() {
+    return {
+      breadcrumbList: []
+    }
+  },
+
+  watch: {
+    $route: {
+      handler() {
+        this.getBreadcrumb()
+      },
+      immediate: true
+    }
+  },
+
+  methods: {
+    getBreadcrumb() {
+      let matched = this.$route.matched.filter(item => item.name)
+      this.breadcrumbList = matched
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.el-breadcrumb {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #a0cfff;
+    border-radius: 5px;
+}
+</style>
