@@ -41,10 +41,6 @@ export default {
 .warp {
   height: calc(100vh - 60px);
 
-  .el-aside {
-    height: 100%;
-  }
-
   .el-main {
     display: flex;
     flex-direction: column;

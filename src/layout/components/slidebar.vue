@@ -49,7 +49,8 @@ export default {
   // box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: #a0cfff;
+  // background: #a0cfff;
+  border-right: 1px solid;
 
   .btn-collpase {
     height: 30px;
