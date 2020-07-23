@@ -1,1 +1,78 @@
 @import './reset.less';
+
+.generate-mps(50);
+
+.generate-mps(@n, @i: 10) when (@i <= @n) {
+  .margin-@{i} {
+    margin: 0px + @i;
+  }
+
+  .margin-t-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .margin-r-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .margin-b-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .margin-l-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .padding-@{i} {
+    margin: 0px + @i;
+  }
+
+  .padding-t-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .padding-r-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .padding-b-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .padding-l-@{i} {
+    margin-left: 0px + @i;
+  }
+
+  .generate-mps(@n, (@i+10));
+}
+
+.f-l {
+  float: left;
+}
+
+.f-r {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.t-r {
+  text-align: rights;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-ce {
+  display: flex;
+  align-items: center;
+}
+
+.flex-ce-bet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
