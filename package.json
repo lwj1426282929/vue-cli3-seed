@@ -42,7 +42,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-alert": "error",
+      "space-before-function-paren": [2, "alwalys"]
+    }
   },
   "browserslist": [
     "> 1%",

@@ -7,6 +7,19 @@ function resolve(dir) {
 }
 
 module.exports = {
+  devServer: {
+    proxy: {
+      '/generate': {
+        target: 'http://10.1.190.224:8081/',
+        changeOrigin: true,
+      },
+      '/server': {
+        target: 'http://10.1.190.224:8081/',
+        changeOrigin: true,
+      },
+    },
+  },
+
   chainWebpack(config) {
     // set svg-sprite-loader
     config.module
