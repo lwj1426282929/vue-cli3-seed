@@ -70,6 +70,10 @@ export default {
         display: none;
       }
     }
+
+    .page {
+      padding: 5px;
+    }
   }
 }
 </style>
