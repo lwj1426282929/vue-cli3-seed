@@ -23,6 +23,7 @@ service.interceptors.response.use(
     if (message && message !== 'success') {
       Notification({
         title: '错误',
+        type: 'error',
         message,
       })
     }
@@ -31,6 +32,7 @@ service.interceptors.response.use(
   (error) => {
     Notification({
       title: '错误',
+      type: 'error',
       message: error,
     })
     return Promise.reject(error)

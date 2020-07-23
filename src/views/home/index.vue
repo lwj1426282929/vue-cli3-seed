@@ -1,10 +1,24 @@
 <template>
-  <div>1</div>
+  <div>{{ time }}</div>
 </template>
 
 <script>
-export default {
+import moment from 'moment'
 
+export default {
+  name: 'home',
+
+  data() {
+    return {
+      time: ''
+    }
+  },
+
+  created() {
+    setInterval(() => {
+      this.time = moment().format('YYYY-MM-DD HH:mm:ss')
+    })
+  }
 }
 </script>
 
