@@ -46,6 +46,7 @@ export default {
 
   .user {
     cursor: pointer;
+    color: #fff;
 
     .user-name {
       margin-left: 10px;
