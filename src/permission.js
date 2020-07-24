@@ -34,7 +34,7 @@ router.beforeEach(async (to, from, next) => {
     const data = await store.dispatch('getMenus')
     const menus = filterAsyncRouter(data)
     router.addRoutes(menus)
-    next(to)
+    next({ ...to, replace: true })
   } else {
     next()
   }

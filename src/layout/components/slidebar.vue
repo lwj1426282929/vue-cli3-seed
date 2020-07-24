@@ -8,6 +8,9 @@
                :collapse="isCollapse"
                :collapse-transition="false"
                :default-active="$route.path">
+        <el-menu-item index="/">
+          <span slot="title">首页</span>
+        </el-menu-item>
         <sidebar-item v-for="(menu, index) in menus"
                       :key="index"
                       :item="menu" />

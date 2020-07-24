@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'navBar',
+  name: 'breadcrumb',
 
   data() {
     return {
@@ -27,7 +27,7 @@ export default {
 
   methods: {
     getBreadcrumb() {
-      let matched = this.$route.matched.filter(item => item.name)
+      const matched = this.$route.matched.filter(item => item.name)
       this.breadcrumbList = matched
     }
   }
@@ -39,7 +39,6 @@ export default {
     margin-bottom: 20px;
     box-sizing: border-box;
     padding: 10px;
-    // background: #a0cfff;
-    border-radius: 5px;
+    background: #fafafa;
 }
 </style>

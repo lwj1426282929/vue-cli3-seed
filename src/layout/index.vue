@@ -1,43 +1,35 @@
 <template>
-  <el-container>
-    <el-header>Header</el-header>
+  <el-container direction="vertical">
+    <navigation />
     <el-container class="warp">
       <slidebar />
-      <el-container>
-        <el-main>
-          <nav-bar v-if="$route.meta.title"></nav-bar>
-          <el-scrollbar wrap-class="scrollbar-wrapper">
-            <router-view class="page" />
-          </el-scrollbar>
-        </el-main>
-      </el-container>
+      <el-main>
+        <breadcrumb v-show="$route.meta.title"></breadcrumb>
+        <el-scrollbar wrap-class="scrollbar-wrapper">
+          <router-view class="page" />
+        </el-scrollbar>
+      </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import navBar from './components/navBar'
+import navigation from './components/navigation'
 import slidebar from './components/slidebar'
+import breadcrumb from './components/breadcrumb'
 
 export default {
   name: 'layout',
 
   components: {
-    navBar,
-    slidebar
+    navigation,
+    slidebar,
+    breadcrumb
   }
 }
 </script>
 
 <style lang="less" scoped>
-.el-header {
-  height: 60px;
-  // background: #333;
-  line-height: 60px;
-  padding: 0 100px;
-  color: #fff;
-}
-
 .warp {
   height: calc(100vh - 60px);
 
@@ -47,8 +39,7 @@ export default {
 
     & > .el-scrollbar {
       flex: 1;
-      // background: #a0cfff;
-      border-radius: 5px;
+      background: #fafafa;
 
       /deep/.el-scrollbar__wrap {
         overflow: auto;

@@ -126,6 +126,7 @@ const store = new Vuex.Store({
           ],
         })
         commit('SET_MENUS', res.data)
+
         return res.data
       })
     },
