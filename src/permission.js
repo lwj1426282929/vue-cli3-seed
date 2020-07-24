@@ -30,6 +30,8 @@ const loadView = (view) => {
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
 
+  if (!store.getters.user || !store.getters.user.name) store.dispatch('getUser')
+
   if (!store.getters.menus || !store.getters.menus.length) {
     const data = await store.dispatch('getMenus')
     const menus = filterAsyncRouter(data)

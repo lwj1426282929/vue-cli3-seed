@@ -55,7 +55,7 @@ const store = new Vuex.Store({
             redirect: '/user/list',
             meta: {
               title: '用户管理',
-              icon: 'plant-09',
+              icon: 'users',
             },
             component: '@/layout',
             children: [
@@ -64,7 +64,6 @@ const store = new Vuex.Store({
                 path: '/user/list',
                 meta: {
                   title: '用户管理',
-                  icon: 'plant-09',
                 },
                 component: '@/views/user',
               },
@@ -73,7 +72,6 @@ const store = new Vuex.Store({
                 path: '/user/add',
                 meta: {
                   title: '新增用户',
-                  icon: 'plant-09',
                 },
                 component: '@/views/user/add',
               },
@@ -84,6 +82,7 @@ const store = new Vuex.Store({
             path: '/document',
             meta: {
               title: '文档管理',
+              icon: 'document'
             },
             component: '@/layout',
             children: [

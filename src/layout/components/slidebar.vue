@@ -9,7 +9,10 @@
                :collapse-transition="false"
                :default-active="$route.path">
         <el-menu-item index="/">
-          <span slot="title">首页</span>
+          <span slot="title">
+            <svg-icon icon-class="home"></svg-icon>
+            <span slot="title">首页</span>
+          </span>
         </el-menu-item>
         <sidebar-item v-for="(menu, index) in menus"
                       :key="index"
@@ -50,7 +53,6 @@ export default {
   display: flex;
   flex-direction: column;
   // background: #a0cfff;
-  border-right: 1px solid;
 
   .btn-collpase {
     height: 30px;
@@ -86,6 +88,10 @@ export default {
   .el-menu {
     border: 0 none;
     max-width: 300px;
+
+    /deep/.svg-icon + span {
+      margin-left: 10px;
+    }
   }
 
   /deep/ .el-menu--collapse > div > .el-submenu > .el-submenu__title span {
