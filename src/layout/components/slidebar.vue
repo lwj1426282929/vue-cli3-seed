@@ -8,9 +8,9 @@
                :collapse="isCollapse"
                :collapse-transition="false"
                :default-active="$route.path">
-        <sidebar-item v-for="(route, index) in routes"
+        <sidebar-item v-for="(menu, index) in menus"
                       :key="index"
-                      :item="route" />
+                      :item="menu" />
       </el-menu>
     </el-scrollbar>
   </el-aside>
@@ -18,8 +18,7 @@
 
 <script>
 import sidebarItem from './slidebarItem'
-import user from '@/router/user'
-import document from '@/router/document'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'sidebar',
@@ -30,16 +29,14 @@ export default {
 
   data() {
     return {
-      isCollapse: false,
-      routes: []
+      isCollapse: false
     }
   },
 
-  created() {
-    this.routes = [
-      ...user,
-      ...document
-    ]
+  computed: {
+    ...mapGetters({
+      menus: 'menus'
+    })
   }
 }
 </script>

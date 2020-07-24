@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-submenu v-if="item.children"
+    <el-submenu v-if="!item.hidden && item.children"
                 :index="item.path">
       <template slot="title">
         <svg-icon v-if="item.meta.icon"
@@ -12,7 +12,7 @@
                      :item="child"></slidebar-item>
     </el-submenu>
 
-    <el-menu-item v-else
+    <el-menu-item v-if="!item.hidden && !item.children"
                   :index="item.path">
       <svg-icon v-if="item.meta.icon"
                 :icon-class="item.meta.icon"></svg-icon>

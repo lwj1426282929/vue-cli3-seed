@@ -29,13 +29,14 @@ service.interceptors.response.use(
     }
     return response.data
   },
-  (error) => {
-    Notification({
-      title: '错误',
-      type: 'error',
-      message: error,
-    })
-    return Promise.reject(error)
+  () => {
+    // Notification({
+    //   title: '错误',
+    //   type: 'error',
+    //   message: error,
+    // })
+    return Promise.resolve({})
+    // return Promise.reject(error)
   },
 )
 

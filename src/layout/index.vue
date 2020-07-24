@@ -32,7 +32,7 @@ export default {
 <style lang="less" scoped>
 .el-header {
   height: 60px;
-  background: #333;
+  // background: #333;
   line-height: 60px;
   padding: 0 100px;
   color: #fff;
