@@ -7,7 +7,7 @@ import Router from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('@/layout'),
+    component: () => import('@/views/layout'),
     children: [
       {
         path: '/',
@@ -15,19 +15,7 @@ const routes = [
         component: () => import('@/views/home'),
       },
     ],
-  },
-  // ...user,
-  // ...document,
-  // {
-  //   name: '404',
-  //   path: '*',
-  //   redirect: '/404',
-  //   component: () => import('@/layout'),
-  //   children: [{
-  //     path: '/404',
-  //     component: () => import('@/views/404')
-  //   }]
-  // },
+  }
 ]
 
 // hack Avoided redundant navigation to current location

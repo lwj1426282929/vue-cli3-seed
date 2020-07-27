@@ -1,7 +1,7 @@
 import NProgress from 'nprogress'
 import router from './router'
 import store from './store'
-import layout from './layout'
+import layout from './views/layout'
 
 const filterAsyncRouter = (routers) => {
   // 遍历后台传来的路由字符串，转换为组件对象

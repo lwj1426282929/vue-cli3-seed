@@ -75,7 +75,7 @@ const store = new Vuex.Store({
               title: '用户管理',
               icon: 'users',
             },
-            component: '@/layout',
+            component: '@/views/layout',
             children: [
               {
                 name: 'userList',
@@ -103,7 +103,7 @@ const store = new Vuex.Store({
               title: '文档管理',
               icon: 'document',
             },
-            component: '@/layout',
+            component: '@/views/layout',
             children: [
               {
                 name: 'documentList',
@@ -129,7 +129,7 @@ const store = new Vuex.Store({
           name: '404',
           path: '*',
           redirect: '/404',
-          component: '@/layout',
+          component: '@/views/layout',
           meta: {
             title: '404',
           },

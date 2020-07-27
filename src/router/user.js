@@ -7,7 +7,7 @@ export default [
       title: '用户管理',
       icon: 'plant-09',
     },
-    component: () => import('@/layout'),
+    component: () => import('@/views/layout'),
     children: [
       {
         name: 'userList',

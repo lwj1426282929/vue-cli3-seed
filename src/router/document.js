@@ -5,7 +5,7 @@ export default [
     meta: {
       title: '文档管理',
     },
-    component: () => import('@/layout'),
+    component: () => import('@/views/layout'),
     children: [
       {
         name: 'documentList',
