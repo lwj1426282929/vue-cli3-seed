@@ -40,7 +40,7 @@ export default {
 <style lang="less" scoped>
 .el-header {
   line-height: 60px;
-  // background: #333;
+  background: #333;
   color: #fff;
   padding: 0 50px;
 
