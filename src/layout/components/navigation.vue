@@ -5,7 +5,7 @@
     </h1>
     <el-dropdown trigger="click">
       <div class="user flex-ce-bet">
-        <el-avatar :src="user.avatar">{{ user.name }}</el-avatar>
+        <el-avatar :src="user.avatar">{{ user.name.slice(-2) }}</el-avatar>
         <span class="user-name">{{ user.name }}</span>
       </div>
 

@@ -82,6 +82,7 @@ const store = new Vuex.Store({
                 path: '/user/list',
                 meta: {
                   title: '用户管理',
+                  icon: 'users',
                 },
                 component: '@/views/user',
               },
@@ -117,6 +118,7 @@ const store = new Vuex.Store({
                 path: '/document/add',
                 meta: {
                   title: '新增文档',
+                  icon: 'users',
                 },
                 component: '@/views/document/add',
               },
