@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getUser, getMenus } from '@/service/user'
+import { getUser, getMenus } from '@/service'
 
 Vue.use(Vuex)
 
-//创建 VueX 对象
+// 创建 VueX 对象
 const store = new Vuex.Store({
   state: {
     token: '123456789',
@@ -48,8 +48,11 @@ const store = new Vuex.Store({
           avatar:
             'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
         }
+
         commit('SET_USER', res.data)
         sessionStorage.setItem('user', JSON.stringify(res.data))
+
+        return res.data
       })
     },
 
@@ -139,6 +142,7 @@ const store = new Vuex.Store({
             },
           ],
         })
+
         commit('SET_MENUS', res.data)
         sessionStorage.setItem('menu', JSON.stringify(res.data))
 
