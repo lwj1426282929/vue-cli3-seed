@@ -35,6 +35,13 @@ const store = new Vuex.Store({
   actions: {
     // 请求当前用户信息
     getUser({ commit }) {
+      if (sessionStorage.getItem('user')) {
+        const data = JSON.parse(sessionStorage.getItem('user'))
+        commit('SET_USER', data)
+
+        return data
+      }
+
       return getUser().then((res) => {
         res.data = {
           name: '赖维健',
@@ -42,11 +49,19 @@ const store = new Vuex.Store({
             'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
         }
         commit('SET_USER', res.data)
+        sessionStorage.setItem('user', JSON.stringify(res.data))
       })
     },
 
     // 请求用户菜单
     getMenus({ commit }) {
+      if (sessionStorage.getItem('menu')) {
+        const data = JSON.parse(sessionStorage.getItem('menu'))
+        commit('SET_MENUS', data)
+
+        return data
+      }
+
       return getMenus().then((res) => {
         res.data = [
           {
@@ -82,7 +97,7 @@ const store = new Vuex.Store({
             path: '/document',
             meta: {
               title: '文档管理',
-              icon: 'document'
+              icon: 'document',
             },
             component: '@/layout',
             children: [
@@ -125,6 +140,7 @@ const store = new Vuex.Store({
           ],
         })
         commit('SET_MENUS', res.data)
+        sessionStorage.setItem('menu', JSON.stringify(res.data))
 
         return res.data
       })
