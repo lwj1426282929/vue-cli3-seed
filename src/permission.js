@@ -31,15 +31,40 @@ const loadView = (view) => {
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
 
-  if (!store.getters.user || !store.getters.user.name) store.dispatch('getUser')
-
-  if (!store.getters.menus || !store.getters.menus.length) {
-    const data = await store.dispatch('getMenus')
-    const menus = filterAsyncRouter(data)
-    router.addRoutes(menus)
-    next({ ...to, replace: true })
+  // 未登录
+  if (!store.getters.token) {
+    if (to.path === '/login') {
+      next()
+    } else {
+      next(`/login?redirect=${to.path}`)
+      NProgress.done()
+    }
   } else {
-    next()
+    if (to.path === '/login') next({ path: '/' })
+    if (!store.getters.user || !store.getters.user.name)
+      store.dispatch('getUser')
+    if (!store.getters.menus || !store.getters.menus.length) {
+      const data = await store.dispatch('getMenus')
+      const menus = filterAsyncRouter(data)
+      const notFound = {
+        name: '404',
+        path: '*',
+        redirect: '/404',
+        component: layout,
+        children: [
+          {
+            path: '/404',
+            component: () => import('@/views/404'),
+          },
+        ],
+      }
+      menus.push(notFound)
+      router.addRoutes(menus)
+
+      next({ ...to, replace: true })
+    } else {
+      next()
+    }
   }
 })
 

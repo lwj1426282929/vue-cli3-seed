@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '../store'
 import { Notification } from 'element-ui'
 
 const service = axios.create({
@@ -9,6 +10,7 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     config.headers['Content-Type'] = 'application/json;charset=UTF-8'
+    config.headers['token'] = store.getters.token
     return config
   },
   (error) => {

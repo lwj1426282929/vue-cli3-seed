@@ -7,13 +7,13 @@ Vue.use(Vuex)
 // 创建 VueX 对象
 const store = new Vuex.Store({
   state: {
-    token: '123456789',
+    token: '',
     user: {},
     menus: [],
   },
 
   getters: {
-    token: (state) => state.token,
+    token: (state) => state.token || sessionStorage.getItem('token'),
     user: (state) => state.user,
     menus: (state) => state.menus,
   },
@@ -125,25 +125,6 @@ const store = new Vuex.Store({
             ],
           },
         ]
-        res.data.push({
-          name: '404',
-          path: '*',
-          redirect: '/404',
-          component: '@/views/layout',
-          meta: {
-            title: '404',
-          },
-          hidden: true,
-          children: [
-            {
-              path: '/404',
-              meta: {
-                title: '404',
-              },
-              component: '@/views/404',
-            },
-          ],
-        })
 
         commit('SET_MENUS', res.data)
         sessionStorage.setItem('menu', JSON.stringify(res.data))
