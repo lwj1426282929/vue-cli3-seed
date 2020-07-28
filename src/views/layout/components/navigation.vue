@@ -3,23 +3,24 @@
     <h1 class="logo">
       <router-link :to="{ name: 'home' }">系统名</router-link>
     </h1>
-    <el-dropdown trigger="click">
-      <div class="user flex-ce-bet">
-        <el-avatar :src="user.avatar">{{ user.name.slice(-2) }}</el-avatar>
-        <span class="user-name">{{ user.name }}</span>
-      </div>
 
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>
-          <svg-icon icon-class="password"></svg-icon>
-          修改密码
-        </el-dropdown-item>
-        <el-dropdown-item>
-          <svg-icon icon-class="exist"></svg-icon>
-          退出
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+    <div class="user flex-ce-bet">
+      <el-avatar :src="user.avatar">{{ user.name.slice(-2) }}</el-avatar>
+      <el-dropdown trigger="click">
+        <span class="user-name">{{ user.name }}</span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>
+            <svg-icon icon-class="password"></svg-icon>
+            修改密码
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <svg-icon icon-class="exist"></svg-icon>
+            退出
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
+
   </el-header>
 </template>
 
@@ -51,6 +52,7 @@ export default {
     .user-name {
       margin-left: 10px;
       font-size: 14px;
+      color: #fff;
     }
   }
 }
