@@ -12,7 +12,7 @@
           <svg-icon icon-class="home"></svg-icon>
           <span slot="title">首页</span>
         </el-menu-item>
-        <sidebar-item v-for="(menu, index) in menus"
+        <sidebar-item v-for="(menu, index) in menu"
                       :key="index"
                       :item="menu" />
       </el-menu>
@@ -39,7 +39,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      menus: 'menus'
+      menu: 'menu'
     })
   }
 }

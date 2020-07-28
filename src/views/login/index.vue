@@ -30,8 +30,6 @@ export default {
       let user = {
         name: this.form.acount
       }
-      sessionStorage.setItem('token', token)
-      sessionStorage.setItem('user', JSON.stringify(user))
       this.$store.commit('SET_TOKEN', token)
       this.$store.commit('SET_USER', user)
       this.$router.push({ path: this.$route.query.redirect || '/' })

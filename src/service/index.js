@@ -6,6 +6,6 @@ export const getUser = (params) => {
 }
 
 // 获取用户所属菜单
-export const getMenus = (params) => {
-  return service.get('/getMenus', { params })
+export const getMenu = (params) => {
+  return service.get('/getMenu', { params })
 }

@@ -41,11 +41,10 @@ router.beforeEach(async (to, from, next) => {
     }
   } else {
     if (to.path === '/login') next({ path: '/' })
-    if (!store.getters.user || !store.getters.user.name)
-      store.dispatch('getUser')
-    if (!store.getters.menus || !store.getters.menus.length) {
-      const data = await store.dispatch('getMenus')
-      const menus = filterAsyncRouter(data)
+    if (!store.getters.user.name) store.dispatch('getUser')
+    if (!store.getters.menu || !store.getters.menu.length) {
+      const data = await store.dispatch('getMenu')
+      const menu = filterAsyncRouter(data)
       const notFound = {
         name: '404',
         path: '*',
@@ -58,8 +57,8 @@ router.beforeEach(async (to, from, next) => {
           },
         ],
       }
-      menus.push(notFound)
-      router.addRoutes(menus)
+      menu.push(notFound)
+      router.addRoutes(menu)
 
       next({ ...to, replace: true })
     } else {

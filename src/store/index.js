@@ -1,47 +1,43 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getUser, getMenus } from '@/service'
+import { getUser, getMenu } from '@/service'
 
 Vue.use(Vuex)
 
 // 创建 VueX 对象
 const store = new Vuex.Store({
   state: {
-    token: '',
-    user: {},
-    menus: [],
+    token: null,
+    user: null,
+    menu: null,
   },
 
   getters: {
     token: (state) => state.token || sessionStorage.getItem('token'),
-    user: (state) => state.user,
-    menus: (state) => state.menus,
+    user: (state) => state.user || JSON.parse(sessionStorage.getItem('user')),
+    menu: (state) => state.menu || JSON.parse(sessionStorage.getItem('menu')),
   },
 
   mutations: {
     SET_TOKEN: (state, data) => {
+      sessionStorage.setItem('token', data)
       state.token = data
     },
 
     SET_USER: (state, data) => {
+      sessionStorage.setItem('user', JSON.parse(data))
       state.user = data
     },
 
-    SET_MENUS: (state, data) => {
-      state.menus = data
+    SET_MENU: (state, data) => {
+      sessionStorage.setItem('menu', JSON.parse(data))
+      state.menu = data
     },
   },
 
   actions: {
     // 请求当前用户信息
     getUser({ commit }) {
-      if (sessionStorage.getItem('user')) {
-        const data = JSON.parse(sessionStorage.getItem('user'))
-        commit('SET_USER', data)
-
-        return data
-      }
-
       return getUser().then((res) => {
         res.data = {
           name: '赖维健',
@@ -50,22 +46,14 @@ const store = new Vuex.Store({
         }
 
         commit('SET_USER', res.data)
-        sessionStorage.setItem('user', JSON.stringify(res.data))
 
         return res.data
       })
     },
 
     // 请求用户菜单
-    getMenus({ commit }) {
-      if (sessionStorage.getItem('menu')) {
-        const data = JSON.parse(sessionStorage.getItem('menu'))
-        commit('SET_MENUS', data)
-
-        return data
-      }
-
-      return getMenus().then((res) => {
+    getMenu({ commit }) {
+      return getMenu().then((res) => {
         res.data = [
           {
             name: 'user',
@@ -126,8 +114,7 @@ const store = new Vuex.Store({
           },
         ]
 
-        commit('SET_MENUS', res.data)
-        sessionStorage.setItem('menu', JSON.stringify(res.data))
+        commit('SET_MENU', res.data)
 
         return res.data
       })
