@@ -27,11 +27,7 @@ export default {
     // 登录
     login() {
       let token = '123456789'
-      let user = {
-        name: this.form.acount
-      }
       this.$store.commit('SET_TOKEN', token)
-      this.$store.commit('SET_USER', user)
       this.$router.push({ path: this.$route.query.redirect || '/' })
     }
   }

@@ -14,8 +14,8 @@ const store = new Vuex.Store({
 
   getters: {
     token: (state) => state.token || sessionStorage.getItem('token'),
-    user: (state) => state.user || JSON.parse(sessionStorage.getItem('user')),
-    menu: (state) => state.menu || JSON.parse(sessionStorage.getItem('menu')),
+    user: (state) => state.user,
+    menu: (state) => state.menu,
   },
 
   mutations: {
@@ -25,12 +25,11 @@ const store = new Vuex.Store({
     },
 
     SET_USER: (state, data) => {
-      sessionStorage.setItem('user', JSON.parse(data))
+      
       state.user = data
     },
 
     SET_MENU: (state, data) => {
-      sessionStorage.setItem('menu', JSON.parse(data))
       state.menu = data
     },
   },
@@ -38,6 +37,12 @@ const store = new Vuex.Store({
   actions: {
     // 请求当前用户信息
     getUser({ commit }) {
+      if (sessionStorage.getItem('user')) {
+        let data = JSON.parse(sessionStorage.getItem('user'))
+        commit('SET_USER', data)
+        return data
+      }
+
       return getUser().then((res) => {
         res.data = {
           name: '赖维健',
@@ -46,6 +51,7 @@ const store = new Vuex.Store({
         }
 
         commit('SET_USER', res.data)
+        sessionStorage.setItem('user', JSON.stringify(res.data))
 
         return res.data
       })
@@ -53,6 +59,12 @@ const store = new Vuex.Store({
 
     // 请求用户菜单
     getMenu({ commit }) {
+      if (sessionStorage.getItem('menu')) {
+        let data = JSON.parse(sessionStorage.getItem('menu'))
+        commit('SET_MENU', data)
+        return data
+      }
+
       return getMenu().then((res) => {
         res.data = [
           {
@@ -114,7 +126,28 @@ const store = new Vuex.Store({
           },
         ]
 
+        res.data.push({
+          name: '404',
+          path: '*',
+          redirect: '/404',
+          component: '@/layout',
+          meta: {
+            title: '404',
+          },
+          hidden: true,
+          children: [
+            {
+              path: '/404',
+              meta: {
+                title: '404',
+              },
+              component: '@/views/404',
+            },
+          ],
+        })
+
         commit('SET_MENU', res.data)
+        sessionStorage.setItem('menu', JSON.stringify(res.data))
 
         return res.data
       })

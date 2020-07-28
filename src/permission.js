@@ -41,23 +41,16 @@ router.beforeEach(async (to, from, next) => {
     }
   } else {
     if (to.path === '/login') next({ path: '/' })
-    if (!store.getters.user.name) store.dispatch('getUser')
-    if (!store.getters.menu || !store.getters.menu.length) {
+
+    if (!store.getters.user) store.dispatch('getUser')
+
+    console.log('store.getters.menu', store.getters.menu)
+    console.log('router.options.routes', router.options.routes)
+
+    if (!store.getters.menu) {
       const data = await store.dispatch('getMenu')
       const menu = filterAsyncRouter(data)
-      const notFound = {
-        name: '404',
-        path: '*',
-        redirect: '/404',
-        component: layout,
-        children: [
-          {
-            path: '/404',
-            component: () => import('@/views/404'),
-          },
-        ],
-      }
-      menu.push(notFound)
+
       router.addRoutes(menu)
 
       next({ ...to, replace: true })
