@@ -28,7 +28,11 @@ export default {
     login() {
       let token = '123456789'
       this.$store.commit('SET_TOKEN', token)
-      this.$router.push({ path: this.$route.query.redirect || '/' })
+
+      let path = this.$route.query.redirect || '/'
+      let query = this.$route.query
+      delete query.redirect
+      this.$router.push({ path, query })
     }
   }
 }
