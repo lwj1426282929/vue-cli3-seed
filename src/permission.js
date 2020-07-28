@@ -44,9 +44,6 @@ router.beforeEach(async (to, from, next) => {
 
     if (!store.getters.user) store.dispatch('getUser')
 
-    console.log('store.getters.menu', store.getters.menu)
-    console.log('router.options.routes', router.options.routes)
-
     if (!store.getters.menu) {
       const data = await store.dispatch('getMenu')
       const menu = filterAsyncRouter(data)
